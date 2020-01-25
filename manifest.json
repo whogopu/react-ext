@@ -2,11 +2,6 @@
   "manifest_version": 2,
   "name": "My chrome extension",
   "version": "1.0.0",
-  "permissions": [
-    "tabs",
-    "activeTab",
-    "storage"
-  ],
   "browser_action": {
     "default_icon": "assets/icon.png",
     "default_popup": "popup/index.html",
@@ -22,14 +17,21 @@
       ]
     }
   ],
+  "permissions": [
+    "<all_urls>",
+    "webRequest",
+    "webRequestBlocking"
+  ],
   "background": {
     "scripts": [
       "background.js"
     ],
-    "persistent": false
+    "persistent": true
   },
   "web_accessible_resources": [
-    "assets/*"
+    "assets/*",
+    "viewer.css",
+    "viewer.js"
   ],
   "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
 }
